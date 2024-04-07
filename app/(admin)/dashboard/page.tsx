@@ -13,6 +13,7 @@ export default function Dashboard() {
 	const [openModal, setOpenModal] = useState(false);
 	const [productDetail, setProductDetail] = useState<ProductType | null>(null);
 	const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null);
+	const [searchQuery, setSearchQuery] = useState<string>("");
 	const router = useRouter();
 	// fetch products
 	useEffect(() => {
@@ -29,6 +30,20 @@ export default function Dashboard() {
 				setLoading(false);
 			});
 	}, []);
+
+	// Search function
+	const handleSearch = (query: string) => {
+		setSearchQuery(query);
+		if (query) {
+			const filteredProducts = products.filter((product) =>
+				product.seller.toLowerCase().includes(query.toLowerCase())
+			);
+			setProducts(filteredProducts);
+		} else {
+			// If search query is empty, reset products to all products
+			setProducts(products);
+		}
+	};
 
 	const [imagePlaceholder, setImagePlaceholder] = useState<string>(
 		"https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png"
@@ -102,6 +117,18 @@ export default function Dashboard() {
 				<div>
 					<h1 className="text-3xl font-bold my-12 ml-12 text-white">Products System</h1>
 				</div>
+
+				<div>
+					<input
+						type="text"
+						placeholder="Search products..."
+						className="p-2 border border-gray-300 rounded-md mr-3"
+						value={searchQuery}
+						onChange={(e) => handleSearch(e.target.value)}
+					/>
+
+
+
 				<ButtonGroup>
 					<Button
 						className={"mr-20"}
@@ -111,6 +138,7 @@ export default function Dashboard() {
 						Add Product
 					</Button>
 				</ButtonGroup>
+				</div>
 
 			</div>
 

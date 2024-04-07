@@ -16,34 +16,8 @@ export const MenuList = [
 
 	},
 	{
-		name: "Setting",
-		path: "/setting",
+		name: "Exit",
+		path: "/",
 		icon: HiViewBoards,
-	},
-	{
-		name: "Inbox",
-		path: "#",
-		icon: HiInbox,
-		label: "3",
-	},
-	{
-		name: "Users",
-		path: "#",
-		icon: HiUser,
-	},
-	{
-		name: "Products",
-		path: "#",
-		icon: HiShoppingBag,
-	},
-	{
-		name: "Sign In",
-		path: "#",
-		icon: HiArrowSmRight,
-	},
-	{
-		name: "Sign Up",
-		path: "#",
-		icon: HiTable,
 	},
 ];
