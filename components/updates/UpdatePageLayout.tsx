@@ -1,5 +1,5 @@
 'use client';
-import { FormDataUpdate } from "@/libs/difinition";
+import { FormDataUpdate } from "@/lib/definitions";
 import { useRouter } from "next/navigation";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -8,7 +8,8 @@ import { useState } from "react";
 import Image from "next/image";
 
 
-const BaseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
+const BaseUrl = "https://store.istad.co";
+const AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0MzIzMzc0LCJpYXQiOjE3MTIxNjMzNzQsImp0aSI6IjZkMjUzOWIzM2U2ZjQ1Y2NhNmE1ZDY3YzI3MjhiYTg5IiwidXNlcl9pZCI6NTh9.JPoE-nZJlHknggDSfkmKCIH53RpR2dm8O7mcEf_nkTM";
 
 
 const validationSchema = Yup.object().shape({
@@ -48,10 +49,10 @@ const UpdatePageLayout = ({ category, name, price, image, quantity, desc, seller
         formData.append("name", name);
         formData.append("image", file);
 
-        const rest = await fetch(`${BaseUrl}file/${typeFile}/`, {
-            method: "POST",
+        const rest = await fetch(`${BaseUrl}/api/file/${typeFile}/${initialValues.id}/`, {
+            method: "PUT",
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                'Authorization': `Bearer ${AccessToken}`
             },
             body: formData,
         });
@@ -69,11 +70,11 @@ const UpdatePageLayout = ({ category, name, price, image, quantity, desc, seller
                 productPost.image = newImageUrl;
             }
 
-            const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}products/${productPost.id}/`, {
+            const response = await fetch(`${BaseUrl}/api/products/${productPost.id}/`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Authorization': `Bearer ${AccessToken}`
                 },
                 body: JSON.stringify(productPost)
             });
@@ -170,7 +171,7 @@ const UpdatePageLayout = ({ category, name, price, image, quantity, desc, seller
                             />
                             <ErrorMessage name="desc" component="div" className={`${style.error}`} />
                         </div>
-                        {seller === "sovanra ruos" && (
+                        {seller === "Jonh Wick" && (
                             <div className="mb-5">
                                 <button type="submit" className={`${style.button}`}>Update</button>
                             </div>

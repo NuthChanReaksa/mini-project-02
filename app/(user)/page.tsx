@@ -44,6 +44,12 @@ const ServiceHome = () => {
 
 				<CardHomeProduct />
 
+			<div>
+
+					<h1 className={"text-center text-6xl my-5"}>
+						Our Services Products Here
+					</h1>
+			</div>
 
 			<div className="mt-6 container mx-auto grid grid-cols-5 grid-flow-row gap-4">
 				{paginatedProducts.map((product: any, index: any) => (
@@ -57,9 +63,7 @@ const ServiceHome = () => {
 				))}
 
 			</div>
-				{/*<div className={"mt-2"}>*/}
-				{/*		<FooterComponent />*/}
-				{/*</div>*/}
+
 
 		</main>
 

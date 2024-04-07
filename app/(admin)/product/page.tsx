@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import style from "./style.module.css";
 import { useState } from "react";
 import { BASE_URL, ACCESS_TOKEN } from "@/lib/constants";
+import Image from "next/image";
 
 type CatageoryType = {
 	name: string;
@@ -307,8 +308,15 @@ const CustomInput = ({ field, form, setFieldValue }: any) => {
 	};
 	return (
 		<div>
-			<input onChange={(e) => handleUploadeFile(e)} type="file" />
-			{imagePreview && <img src={imagePreview} alt="preview" />}
+			<input onChange={(e) => handleUploadeFile(e)} type="file"/>
+			{imagePreview && (
+				<Image
+					src={imagePreview}
+					alt="preview"
+					width={300} // Set your desired width
+					height={200} // Set your desired height
+				/>
+			)}
 		</div>
 	);
 };

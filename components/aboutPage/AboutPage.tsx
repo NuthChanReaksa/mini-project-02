@@ -1,5 +1,5 @@
 import React from "react";
-
+import Image from "next/image"; // Importing Image component from Next.js
 
 export default function AboutPage() {
     return (
@@ -24,24 +24,30 @@ export default function AboutPage() {
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-1">
                     <div className="p-4">
-                        <img
+                        <Image
                             src="https://t4.ftcdn.net/jpg/05/88/63/09/240_F_588630919_T6LZJsr92WvGTl87E3U1k9ZrWJJoEIkO.jpg"
                             alt="Composite Image 1+4"
-                            className="w-full h-auto rounded-lg"
+                            width={640}
+                            height={480}
+                            className="rounded-lg"
                         />
                     </div>
                     <div className="p-4">
-                        <img
+                        <Image
                             src="https://t3.ftcdn.net/jpg/06/23/22/94/240_F_623229485_dJjXDiQIdFgzpfs6ZR1ppIPqE0bPdMnr.jpg"
                             alt="Composite Image 1+4"
-                            className="w-full h-auto rounded-lg"
+                            width={640}
+                            height={480}
+                            className="rounded-lg"
                         />
                     </div>
                     <div className="p-4">
-                        <img
+                        <Image
                             src="https://t4.ftcdn.net/jpg/07/08/23/35/240_F_708233570_EJ5WKm53tw0V5R7GKPdmEVBDnVouJEtL.jpg"
                             alt="Composite Image 3+6"
-                            className="w-full h-auto rounded-lg"
+                            width={640}
+                            height={480}
+                            className="rounded-lg"
                         />
                     </div>
                 </div>
@@ -52,14 +58,17 @@ export default function AboutPage() {
             </h3>
 
             <div className="mb-5">
-                <img
+                <Image
                     src="https://t4.ftcdn.net/jpg/06/74/74/25/240_F_674742576_RCGb0F7B12zTcDfhMm15pflJhguo6Lin.jpg"
-                    style={{ width: "80%" }}
+                    width={800}
+                    height={533}
                     className="mx-auto"
                     alt=""
                 />
                 <p style={{ width: "70%" }} className="mx-auto my-4">
-                    e-commerce platform! CSTAD is Cambodia is premier institution for advancing science, technology, research, and digital skills. Whether you're a student looking to enhance your knowledge .
+                    e-commerce platform! CSTAD is Cambodia is premier institution for
+                    advancing science, technology, research, and digital skills. Whether
+                    you are a student looking to enhance your knowledge .
                 </p>
             </div>
 
@@ -70,12 +79,14 @@ export default function AboutPage() {
             <div className="my-12">
                 <div className="flex flex-col md:flex-row gap-3">
                     <div className="w-full md:w-1/2 lg:w-1/3 ">
-                        <img
+                        <Image
                             src="https://t4.ftcdn.net/jpg/06/74/74/25/240_F_674742576_RCGb0F7B12zTcDfhMm15pflJhguo6Lin.jpg"
-                            className="w-full h-auto"
-                            alt=""
-                            style={{ borderRadius: "20px" }}
+                            alt="Description of the image"
+                            width={640}
+                            height={480}
+                            className="rounded-lg"
                         />
+
                     </div>
                     <div className="w-full md:w-1/2 lg:w-2/3 p-2">
                         <div className="bg-white py-3 px-5 rounded-lg md:mb-0">
@@ -119,7 +130,6 @@ export default function AboutPage() {
 
             {/* End of App download links */}
 
-
             {/* About app */}
             <h2 className="text-3xl font-bold my-5 text-center">About this app</h2>
             <div className="w-4/5 mx-auto m-8 pb-10">
@@ -130,13 +140,19 @@ export default function AboutPage() {
                             <span className="text-black pl-1">APP</span>
                         </p>
                         <p className="my-3 text-gray-700 text-sm">
-                            The seller has provided information about their privacy practices concerning the handling of your data as described below. Please note that this information has not been verified by the e-commerce platform. For more details, refer to the seller's privacy policy..
+                            The seller has provided information about their privacy practices
+                            concerning the handling of your data as described below. Please
+                            note that this information has not been verified by the e-commerce
+                            platform. For more details, refer to the seller is privacy policy..
                         </p>
                     </div>
                     <div className="bg-white p-8 rounded-lg mb-4 md:mb-0">
                         <p className="flex items-center mt-2 font-semibold">APP PRIVACY</p>
                         <p className="my-3 text-gray-700 text-sm">
-                            The seller has provided information about their privacy practices concerning the handling of your data as described below. Please note that this information has not been verified by the e-commerce platform. For more details, refer to the seller's privacy policy.
+                            The seller has provided information about their privacy practices
+                            concerning the handling of your data as described below. Please
+                            note that this information has not been verified by the e-commerce
+                            platform. For more details, refer to the seller is privacy policy.
                         </p>
                     </div>
                 </div>

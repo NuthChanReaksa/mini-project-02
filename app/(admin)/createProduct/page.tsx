@@ -7,7 +7,9 @@ import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const BASE_URL =  "https://store.istad.co/api/products/";
+const BASE_URL =  "https://store.istad.co/api/product/";
+const url="https://store.istad.co";
+const Access_Token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NjMwNDI3LCJpYXQiOjE3MTI0NzA0MjcsImp0aSI6IjJiMjI5YTk0OGZjNDRmY2RiMDIzZTZmYTM4NDY5NDkxIiwidXNlcl9pZCI6NTh9.7EjzXmTwOUFXg1vjPtRVm828xmOvGYbLqA1xfB55_q4"
 type CategoryType = {
     name: string;
     icon: string;
@@ -86,10 +88,10 @@ export default function Product() {
         formData.append("name", name);
         formData.append("image", file);
 
-        const rest = await fetch(`${BASE_URL}file/${typeFile}/`, {
+        const rest = await fetch(`${url}/api/file/${typeFile}/`, {
             method: "POST",
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                'Authorization': `Bearer ${Access_Token}`,
             },
             body: formData,
         });
@@ -99,11 +101,11 @@ export default function Product() {
     };
 
     const handleSubmitProduct = async (value: ProductPostType) => {
-        const res = await fetch(`${BASE_URL}products/`, {
+        const res = await fetch(`${url}/api/products/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                'Authorization': `Bearer ${Access_Token}`
             },
             body: JSON.stringify(value),
 

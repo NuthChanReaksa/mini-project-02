@@ -23,7 +23,7 @@ export default function AdminLayout({
 						isShowSideBar && "hidden"
 					} lg:block`}
 				>
-					<SideBarComponent />
+					<SideBarComponent/>
 				</aside>
 				<main className="flex-1">{children}</main>
 			</body>

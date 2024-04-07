@@ -16,14 +16,15 @@ export default function SideBarComponent() {
 	const [menuList, setMenuList] = useState<MenuItem[]>(MenuList);
 	return (
 		<Sidebar aria-label="Default sidebar example">
-			<Sidebar.Items>
+			<Sidebar.Items >
 				<Sidebar.ItemGroup>
 					{menuList.map((item, index) => (
 						<Sidebar.Item
+							className="bg-cyan-700 text-white hover:bg-cyan-800 hover:text-white-100"
 							key={index}
 							as={Link}
 							href={item.path}
-							icon={item.icon}
+							icon={ item.icon}
 						>
 							{item.name}
 						</Sidebar.Item>

@@ -20,7 +20,7 @@ export default function PolicyPage() {
             <ul className='list-disc pl-5'>
                 <li className='mt-10'>
                     <h2 className='text-lg sm:text-xl lg:text-2xl font-bold text-black mb-4'>Return Policy</h2>
-                    <p className='leading-7'>We offer a 30-day return policy for all our training programs and courses. If you're not satisfied with your enrollment, you can cancel within 30 days for a full refund. Please ensure that you have not accessed more than 10% of the course content to be eligible for a refund.</p>
+                    <p className='leading-7'>We offer a 30-day return policy for all our training programs and courses. If you are not satisfied with your enrollment, you can cancel within 30 days for a full refund. Please ensure that you have not accessed more than 10% of the course content to be eligible for a refund.</p>
                 </li>
                 <li className='mt-10'>
                     <h2 className='text-lg sm:text-xl lg:text-2xl font-bold text-black mb-4'>Shipping Policy</h2>

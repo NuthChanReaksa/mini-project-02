@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Props = {
     image: string;
     seller: string;
@@ -11,10 +13,8 @@ const viewPageLayout =({image, seller,desc,price,name}:Props) =>{
         <main className="container mx-5 mt-20">
             <section className="flex flex-col justify-between lg:flex-row gap-16 lg:items-center">
                 <div className="flex flex-col gap-6 lg:w-2/4">
-                    <img src={image} alt="" className="w-full aspect-square object-cover rounded-lg"/>
-                    {/*<div className="flex flex-row justify-between h-24">*/}
-                    {/*    <img src="" alt="" className="w-24 h-24 rounded-md cursor-pointer" onClick={()=>setActive("")}/>*/}
-                    {/*</div>*/}
+                    <Image src={image} alt="" className="w-full aspect-square object-cover rounded-lg"/>
+
                 </div>
                 <div className="flex flex-col gap-6 lg:w-2/4">
                     <div>

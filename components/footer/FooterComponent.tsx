@@ -1,16 +1,21 @@
+import Image from 'next/image'; // Import Image component from Next.js
+import React from 'react';
+
 export default function FooterComponent() {
     return (
         <footer className="px-3 pt-4 bg-cyan-700 lg:px-9 border-t-2 text-center sm:text-center md:text-center">
             <div className="container mx-auto grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="ml-4">
                     <a href="index.html" className="flex items-center">
-                        <img
+                        <Image
                             src="https://istad.co/resources/img/CSTAD_120.png"
                             alt="logo"
+                            width={120}
+                            height={120}
                             className="cstadlogo"
                         />
                         <span className="ml-2 text-lg font-bold tracking-wide text-white">
-              Start your IT career with CSTAD
+              Start Ecommerce product with E-CSTAD
             </span>
                     </a>
                     <p className="mt-4 text-sm text-white text-justify">
@@ -42,20 +47,22 @@ export default function FooterComponent() {
                             href="https://apps.apple.com/kh/app/cstad-mobile/id6463835798"
                             className="w-full min-w-xl flex justify-end"
                         >
-                            <img
+                            <Image
                                 src="https://social.webestica.com/assets/images/app-store.svg"
                                 alt="Appstore Button"
-                                className="h-10"
+                                width={120}
+                                height={40}
                             />
                         </a>
                         <a
                             href="https://play.google.com/store/apps/details?id=co.istad.mobile.istad_moblie&pcampaignid=web_share"
                             className="w-full min-w-xl"
                         >
-                            <img
+                            <Image
                                 src="https://social.webestica.com/assets/images/google-play.svg"
                                 alt="Playstore Button"
-                                className="h-10"
+                                width={120}
+                                height={40}
                             />
                         </a>
                     </div>

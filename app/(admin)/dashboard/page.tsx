@@ -2,9 +2,10 @@
 import { ProductType } from "@/lib/definitions";
 import { useEffect, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { Button, Modal } from "flowbite-react";
+import {Button, ButtonGroup, Modal} from "flowbite-react";
 import Image from "next/image";
 import {useRouter} from "next/navigation";
+
 
 export default function Dashboard() {
 	const [products, setProducts] = useState<ProductType[]>([]);
@@ -41,6 +42,7 @@ export default function Dashboard() {
         setSelectedProduct(product);
         router.push(`/update/${product.id}`);
     };
+
     const handleDelete = (product: ProductType) => {
         setSelectedProduct(product);
         router.push(`/delete/${product.id}`);
@@ -59,7 +61,13 @@ export default function Dashboard() {
 		{
 			name: "Image",
 			selector: (row): any => (
-				<img className="w-16 h-16" src={row.image} alt={row.image} />
+				<Image
+					src={row.image ?? "/path/to/default-image.jpg"} // Replace with your default image path
+					alt={row.seller || "Seller"}
+					width={64}
+					height={64}
+					className="rounded-lg"
+				/>
 			),
 			sortable: true,
 		},
@@ -86,8 +94,28 @@ export default function Dashboard() {
 	];
 
 	return (
-		<main className="h-screen">
+		<main className="h-screen bg-cyan-700">
+			<div className="flex justify-between items-center">
+				<div>
+
+				</div>
+				<div>
+					<h1 className="text-3xl font-bold my-12 ml-12 text-white">Products System</h1>
+				</div>
+				<ButtonGroup>
+					<Button
+						className={"mr-20"}
+						gradientMonochrome="info"
+						onClick={() => router.push("/createProduct")}
+					>
+						Add Product
+					</Button>
+				</ButtonGroup>
+
+			</div>
+
 			<DataTable
+				className={" mr-2 text-cyan-700"}
 				fixedHeader
 				progressPending={loading}
 				columns={columns}
@@ -98,12 +126,12 @@ export default function Dashboard() {
 				highlightOnHover
 			/>
 			<Modal show={openModal} onClose={() => setOpenModal(false)}>
-				<Modal.Header>Product Detial</Modal.Header>
+				<Modal.Header>Product Detail</Modal.Header>
 				<Modal.Body>
 					<div className="space-y-6">
 						<Image
 							src={productDetail?.image || imagePlaceholder}
-							alt={productDetail?.seller || "Untitle"}
+							alt={productDetail?.seller || "No seller"}
 							width={250}
 							height={300}
 						/>

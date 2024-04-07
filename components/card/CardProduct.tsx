@@ -21,7 +21,7 @@ export default function CardProduct({
 	return (
 		<Card
 			onClick={onClick}
-			className="max-w-sm cursor-pointer "
+			className="max-w-sm cursor-pointer container mx-auto "
 			renderImage={() => (
 				<Image width={300} height={300}
 					   src={image}

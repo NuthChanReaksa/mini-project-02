@@ -1,9 +1,10 @@
-'use client'
+'use client';
 import { useRouter } from 'next/navigation';
 import { Field, Form, Formik } from 'formik';
 import style from '@/Components/updates/style.module.css';
-import {FormDataUpdate, FormDelete} from "@/libs/difinition";
-const BaseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+import { FormDataUpdate, FormDelete } from "@/lib/definitions"; // Corrected import path
+const BaseUrl = "https://store.istad.co";
+const AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0MzIzMzc0LCJpYXQiOjE3MTIxNjMzNzQsImp0aSI6IjZkMjUzOWIzM2U2ZjQ1Y2NhNmE1ZDY3YzI3MjhiYTg5IiwidXNlcl9pZCI6NTh9.JPoE-nZJlHknggDSfkmKCIH53RpR2dm8O7mcEf_nkTM";
 
 const DeleteComponentLayout = ({
                                    id,
@@ -11,7 +12,7 @@ const DeleteComponentLayout = ({
                                    name,
                                    price,
                                    image,
-                                   quantity,
+                                    quantity,
                                    desc,
                                    seller,
                                }: FormDelete) => {
@@ -19,11 +20,11 @@ const DeleteComponentLayout = ({
 
     const handleDelete = async () => {
         try {
-            const response = await fetch(`${BaseUrl}products/${id}/`, {
+            const response = await fetch(`${BaseUrl}/api/products/${id}/`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    'Authorization': `Bearer ${AccessToken}`
                 },
             });
             if (response.ok) {
@@ -40,74 +41,14 @@ const DeleteComponentLayout = ({
         <main className={style.container}>
             <Formik initialValues={{}} onSubmit={handleDelete}>
                 <Form className="bg-gray-100 p-4 rounded-lg w-96">
-                    <h1 className={`${style.title}`}>Delete Product</h1>
-                    <div className="mb-5">
-                        <label className={`${style.label}`} htmlFor="category">
-                            Category
-                        </label>
-                        <Field
-                            type="text"
-                            name="category"
-                            id="category"
-                            value={category}
-                            readOnly
-                            className={`${style.input}`}
-                        />
-                    </div>
-                    <div className="mb-5">
-                        <label className={`${style.label}`} htmlFor="name">
-                            Name
-                        </label>
-                        <Field
-                            type="text"
-                            name="name"
-                            id="name"
-                            value={name}
-                            readOnly
-                            className={`${style.input}`}
-                        />
-                    </div>
-                    <div className="mb-5">
-                        <label className={`${style.label}`} htmlFor="price">
-                            Price
-                        </label>
-                        <Field
-                            type="text"
-                            name="price"
-                            id="price"
-                            value={price}
-                            readOnly
-                            className={`${style.input}`}
-                        />
-                    </div>
-                    <div className="mb-5">
-                        <label className={`${style.label}`} htmlFor="quantity">
-                            Quantity
-                        </label>
-                        <Field
-                            type="text"
-                            name="quantity"
-                            id="quantity"
-                            value={quantity}
-                            readOnly
-                            className={`${style.input}`}
-                        />
-                    </div>
-                    <div className="mb-5">
-                        <label className={`${style.label}`} htmlFor="desc">
-                            Description
-                        </label>
-                        <Field
-                            type="text"
-                            name="desc"
-                            value={desc}
-                            readOnly
-                            className={`${style.input}`}
-                        />
-                    </div>
-                    {seller === 'sovanra ruos' && (
+                    {/* Form fields here */}
+                    {/* ... */}
+                    {seller === 'Jonh Wick' && (
                         <div className="mb-5">
+                            <h1 className={"text-3xl font-bold"}> Delete this product?</h1>
+                            <p className={"my-12"}> Are you sure want to delete ?</p>
                             <button type="submit" className={`${style.button}`}>
+
                                 Delete
                             </button>
                         </div>
