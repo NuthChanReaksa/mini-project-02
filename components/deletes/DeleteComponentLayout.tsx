@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { Field, Form, Formik } from 'formik';
-import style from '@/Components/updates/style.module.css';
+import style from '@/components/updates/style.module.css';
 import { FormDataUpdate, FormDelete } from "@/lib/definitions"; // Corrected import path
 const BaseUrl = "https://store.istad.co";
 const AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0MzIzMzc0LCJpYXQiOjE3MTIxNjMzNzQsImp0aSI6IjZkMjUzOWIzM2U2ZjQ1Y2NhNmE1ZDY3YzI3MjhiYTg5IiwidXNlcl9pZCI6NTh9.JPoE-nZJlHknggDSfkmKCIH53RpR2dm8O7mcEf_nkTM";
